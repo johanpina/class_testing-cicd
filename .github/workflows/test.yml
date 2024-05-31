@@ -50,3 +50,14 @@ jobs:
       - name: Run tests
         run: |
           pytest
+
+          
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: srv-cpd3hp0l6cac73bemsvg
+          api-key: rnd_qrbZ3VhWsiY7C5V2rtOrgrX9x47m
